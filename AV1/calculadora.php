@@ -6,8 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    echo 'Calculadora';
-    ?>
+    <?php echo 'Calculadora';?>
+    
+    <form method='GET' action='soma.php'>
+        a:<input type=text name='a'><br>
+        b:<input type=text name='b'><br>
+        <input type=submit valur="Somar'>
 </body>
 </html>
