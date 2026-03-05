@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Saber se um numero esta dentro de um intervalo</title>
+        <center> <h1> Achar numero em um intervalo </h1></center>
+
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                font-family: Arial, sans-serif;
+            }
+            .linha {
+                display: flex;
+                gap: 20px;
+                margin-bottom: 20px;
+            }
+            .linha-unica {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+            input {
+                width: 60px;
+                text-align: center;
+            }
+     </style>
+    </head>
+
+
+    <body>
+        <div class="linha">
+            <div>
+                <label for="numero1">Menor numero do intervalo:</label>
+                <input id="numero1" type="text">
+            </div>
+
+            <div>
+                <label for="numero2">Maior numero do intervalo:</label>
+                <input id="numero2" type="text">
+            </div>
+
+        </div>
+
+            <div class="linha-unica">
+                <label for="numero3">Forneça um numero para encontrar no intervalo:</label>
+                <input id="numero3" type="text">
+            </div>
+
+            <div class="linha-unica">
+                <button onclick="DentroIntervalo()">Procurar</button>
+            </div>
+
+        <script>
+            function DentroIntervalo () {
+
+                let n1 = Number(document.getElementById("numero1").value);
+                let n2 = Number(document.getElementById("numero2").value);
+                let n3 = Number(document.getElementById("numero3").value);
+
+                if (n3 > n1 && n3 < n2) {
+                    alert("O numero esta dentro do intervalo.");
+                }
+
+                else {
+                    alert("O numero nao esta dentro do intervalo.");
+                }
+            }
+            
+        </script>
+    </body> 
+</html>

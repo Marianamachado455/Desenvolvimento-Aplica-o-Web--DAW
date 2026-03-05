@@ -1,0 +1,149 @@
+#banner {
+    display: flex;
+    gap: 10px; 
+    align-items: center; 
+    padding: 10px 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+#banner_img {
+    width: 70px;
+    height: 70px;
+}
+
+#banner_h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+#main {
+    background-color: rgb(212, 237, 218);
+}
+
+#destaque {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    width: 90%;
+    padding: 30px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, rgb(104, 158, 206), rgb(135, 185, 230));
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+#destaque_txt {
+    font-size: 26px;
+    line-height: 1.5;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#destaque_img {
+    width: 450px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.Subtitulos {
+    font-size: 27px;
+    font-family: Poppins;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.descricao {
+    font-size: 16px;
+    font-family: Poppins;
+    text-align: left;
+    font-weight: italic;
+    color: grey;
+    margin-top: 15px;
+}
+
+.figura {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    border-radius: 10px; 
+}
+
+.legenda {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px;
+    background-color:#3b44c0;
+    border-radius: 10px;
+}
+
+.galeria {
+    display: flex;           
+    justify-content: center; 
+    gap: 30px;               
+    margin: 50px 0;         
+}
+
+.imgAnimal {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+form {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: 30px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-family: 'Poppins', sans-serif;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    color: #2e3b2f;
+}
+
+form input[type="text"], 
+form input[type="email"], 
+form input[type="tel"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+form input[type="radio"] {
+    margin: 0 5px 0 0;
+}
+
+form input[type="submit"] {
+    margin: 20px auto 0 auto;
+    display: block;
+    padding: 10px 20px;
+    background-color: #3b44c0;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2e37a0;
+}

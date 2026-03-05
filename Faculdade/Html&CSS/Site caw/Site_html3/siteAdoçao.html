@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PetLover</title>
+    <link href="adoçãoCSS.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <script src="adoçao.js"></script>
+</head>
+<body>
+    <header>
+        <div id="banner">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPFyFCv7kHA8wAMiJ8NVU4XpGT3RMFbgWUIA&s" 
+                 alt="Imagem icone Petlover" id="banner_img">
+            <h1 id="banner_h1">Petlover</h1>
+        </div>
+    </header>
+
+    <main id="main">
+        <div id="destaque">
+            <div id="destaque_txt">Adotar é muito mais do que abrir a porta da sua casa: é abrir o coração para uma amizade verdadeira e incondicional. Cada animal aqui já passou por desafios, mas todos carregam a mesma esperança de encontrar alguém especial que os acolha. Ao escolher adotar, você transforma não só a vida deles, mas também a sua, trazendo companhia, alegria e carinho para cada momento. Venha conhecer nossos amigos de quatro patas e descubra o poder de um novo começo cheio de amor e cumplicidade.</div>
+            <img src="https://img.huffingtonpost.com/asset/66314f962200007344fc7922.jpeg?cache=GtTw2j0fOL&ops=scalefit_500_noupscale"
+                 alt="Imagem exemplo de animal feliz" id="destaque_img">
+        </div>
+
+        <label class="Subtitulos">Animais que precisam de um lar</label>
+
+        <div class="galeria">
+                <div class="figura">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT40FOdK6gnn18qenqGYyvwxgnr8taCJl87sQ&s" 
+                    class="imgAnimal" alt="cachorro 1">
+                    <div class="legenda">Hanna</div>
+                </div>
+                <div class="figura">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg4bPQ_TJVX9INV_2ZjlkS7ny4WByVZDBw7Q&s" 
+                    class="imgAnimal" alt="gato 1">
+                    <div class="legenda">Rony</div>
+                </div>
+                <div class="figura">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGNvdQAribRBF3zI4NPHPoqXQ-tzJ0RP_r7g&s" 
+                    alt="gato 2" class="imgAnimal">
+                    <div class="legenda">Feijão</div>
+                </div>
+            </div>
+
+            <div class="galeria">
+                <div class="figura">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUtCxeUgFRkTr6Wjgw0NMzgKr5xS6xC-nbuQ&s" 
+                    alt="Foto gato 3" class="imgAnimal">
+                    <div class="legenda">Lola</div>
+                </div>
+
+                <div class="figura">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy1GTftwbbb2WvfUhTkb5-Lm82Qwv1BQlL2Q&s"
+                    alt="Foto gato 3" class="imgAnimal">
+                    <div class="legenda">Ariel</div>
+                </div>
+
+                <div class="figura">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiSZGcJLSTvnfdr40EBiOjACTsAumAVoUuvg&s" 
+                    alt="Foto cachorro 2" class="imgAnimal">
+                    <div class="legenda"> Russel </div>
+                </div>
+            </div>
+
+            <label class="Subtitulos">Quer Adotar?</label>
+
+            <div>
+                <label class="descricao"> Com as informações abaixo, nossa equipe poderá 
+                falar com você e orientar os próximos passos da adoção, além de 
+                fornecer detalhes adicionais sobre os animais e o processo de adoção em si.</label>
+            </div>
+
+
+        <script>
+
+            function enviar()
+            {
+            let n1 = document.getElementById("nome"),
+                n2 = document.getElementById("cpf"),
+                n3 = document.getElementById("cel"),
+                r1 = document.getElementById("pag1"),
+                r2 = document.getElementById("pag2"),
+                r3 = document.getElementById("pag3"),
+                r4 = document.getElementById("pag4");
+
+            if(n1.value.trim()==""){
+            alert("O nome é obrigatório"); return false;
+            }
+            if(n2.value.trim()==""){
+            alert("O cpf é obrigatório"); return false;
+            }
+            if(n3.value.trim()==""){
+            alert("O número do celular é obrigatório"); return false;
+            }
+            if(!r1.checked && !r2.checked && !r3.checked && !r4.checked){
+            alert("Selecione uma opção de gênero"); return false;
+            }
+            return true;
+            }
+
+        </script>
+        <form action="mailto:fulano@gmail.com" method="post" onsubmit="return enviar()">
+            <label>Nome:</label>
+            <input type="text" name="nome" id="nome"/> <br/>
+            <label>Cpf:</label>
+            <input type="text" name="nome" id="cpf"/> <br/>
+            <label>Número celular:</label>
+            <input type="text" name="nome" id="cel"/> <br/>
+            <label>Gênero:</label>
+            <input type="radio" name="pag" id="pag1" value="F"/> Feminino
+            <input type="radio" name="pag" id="pag2" value="M"/> Masculino <br/>
+            <input type="radio" name="pag" id="pag3" value="Nb"/> Não-binário <br/>
+            <input type="radio" name="pag" id="pag4" value="N/A"/> Prefiro não responder <br/>
+            <input type="submit" value="Enviar"/>
+        </form>
+            
+    
+    </main>
+</body>
+</html>

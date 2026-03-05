@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Imprimir numeros de 1 a 50 ímpares</title>
+    </head>
+    <body>
+        <script>
+            function determinarParImpar () {
+
+                let n = 5; 
+                
+                for (let i = 1; i <= n; i++) {
+                    let linha = "";
+                    
+                    for (let j = 1; j <= n - i; j++) { 
+                        linha += " ";  // espaços
+                    }
+                    
+                    for (let k = 1; k <= 2 * i - 1; k++) {
+                        linha += "#";  // hashes
+                    }
+                    
+                    console.log(linha)
+                }
+            }
+
+            determinarParImpar();
+
+        </script>
+    </body> 
+</html>
