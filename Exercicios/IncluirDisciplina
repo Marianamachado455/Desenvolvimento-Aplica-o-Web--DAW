@@ -1,42 +1,113 @@
 <?php
-    // $msg = "";
-if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
-    $nome = $_POST["nome"];
-    $sigla = $_POST["sigla"];
-    $carga = $_POST["carga"];
-    $msg = "";
-    echo "nome: " . $nome . " sigla: " . " carga: " . $carga;
-   if (!file_exists("disciplinas.txt")) {
-       $arqDisc = fopen("disciplinas.txt","w") or die("erro ao criar arquivo");
-       $linha = "nome;sigla;carga\n";
-       fwrite($arqDisc,$linha);
-       fclose($arqDisc);
-   }
-   $arqDisc = fopen("disciplinas.txt","a") or die("erro ao criar arquivo");
- //   $arqDisc = fopen("disciplinas.txt","w") or die("erro ao criar arquivo");
- //   $linha = "nome;sigla;carga\n";
-    $linha = $nome . ";" . $sigla . ";" . $carga . "\n";
-    fwrite($arqDisc,$linha);
-    fclose($arqDisc);
-    $msg = "Deu tudo certo!!!";
-}
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')  {
+        $matricula = $_POST["matricula"];
+        $nome = $_POST["nome"];
+        $email = $_POST["email"];
+        $msg = "";
+        echo "matricula: " . $matricula . " nome: " . $nome . " email: " . $email;
+
+        if (!file_exists("alunos.txt")) {
+            $arqAlun = fopen("alunos.txt","w") or die("erro ao criar arquivo");
+            $linha = "matricula;nome;email\n";
+            fwrite($arqAlun,$linha);
+            fclose($arqAlun);
+        }
+
+        $arqAlun = fopen("alunos.txt","a") or die("erro ao criar arquivo");
+            $linha = $matricula . ";" . $nome . ";" . $email . "\n";
+            fwrite($arqAlun,$linha);
+            fclose($arqAlun);
+            $msg = "Deu tudo certo!!!";
+    }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 </head>
 <body>
-<h1>Criar Nova Disciplina</h1>
-<form action="ex03_IncluirDisciplina.php" method="POST">
-    Nome: <input type="text" name="nome">
-    <br><br>
-    Sigla: <input type="text" name="sigla">
-    <br><br>
-    Carga Horaria: <input type="text" name="carga">
-    <br><br>
-    <input type="submit" value="Criar Nova Disciplina">
-</form>
-<p><?php echo $msg ?></p>
-<br>
+    <h1>Sistema Cadastro aluno</h1>
+    <h2>Formulario para inserir novo aluno</h2>
+    <form action="ex2 - SistemaCadastro.php" method="POST">
+        Matricula: <input type="text" name="matricula">
+        <br><br>
+        Nome: <input type="text" name="nome">
+        <br><br>
+        Email: <input type="text" name="email">
+        <br><br>
+        <input type="submit" value="Criar Novo aluno">
+    </form>
+
+    <h2>Listagem de todos os alunos incluidos</h2>
+        <table>
+    <tr><th>matricula</th><th>nome</th><th>email</th></tr>
+    <?php
+
+    if (!file_exists("alunos.txt")) {
+    echo "Nenhum aluno adicionado ainda";
+    }
+    else {
+        $arqALun = fopen("alunos.txt","r");
+
+        //Evita de ler a 1 linha
+        $linha = fgets($arqALun);
+
+        while(($linha = fgets($arqALun)) !== false) {
+
+        $colunaDados = explode(";", $linha);
+
+        echo "<tr><td>" . $colunaDados[0] . "</td>" .
+            "<td>" . $colunaDados[1] . "</td>" .
+            "<td>" . $colunaDados[2] . "</td></tr>";
+        }
+
+        fclose($arqALun);
+    }
+    ?>
+    </table>
+    <br>
+
+    <h2>Pesquisar aluno por matricula</h2>
+    <form method="GET">
+    Matricula: <input type="text" name="matricula">
+    <input type="submit" value="Pesquisar">
+    </form>
+
+    <?php 
+        //Tratar possiveis erros
+        if(isset($_GET["matricula"])) {
+            $matricula = $_GET["matricula"];
+
+            if (!file_exists("alunos.txt")) {
+            echo "Nenhum aluno adicionado ainda";
+            }
+
+            //Abrir arquivo e procurar nele a matricula
+            else {
+                $arqALun = fopen("alunos.txt","r");
+                $achouAluno = false;
+
+                //Evita de ler a 1 linha
+                $linha = fgets($arqALun);
+
+                while(($linha = fgets($arqALun)) !== false && !$achouAluno) {
+
+                    $colunaDados = explode(";", $linha);
+
+                    if ($colunaDados[0] == $matricula) {
+                        echo "<table>";
+                            echo "<tr>
+                                <td>matricula:$colunaDados[0]</td>
+                                <td>nome:$colunaDados[1]</td>
+                                <td>email:$colunaDados[2]</td>
+                            </tr>";
+                        echo "</table>";
+                        $achouAluno = true;
+                    }
+                }
+                fclose($arqALun);
+            }
+        }
+        ?>
+
 </body>
 </html>
